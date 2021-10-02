@@ -1,8 +1,6 @@
 import { CSSProperties } from 'react';
 
-type MainProps = {}
-
-function Main({}: MainProps): JSX.Element {
+function Main(): JSX.Element {
   const width80: CSSProperties = {width: '80%'}
   const width100: CSSProperties = {width: '100%'}
   const citiesPlaces = [1]
