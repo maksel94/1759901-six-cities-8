@@ -11,12 +11,9 @@ import SignIn from '../sign-in/sign-in';
 const isAuthorized = true;
 
 function App(): JSX.Element {
-  const isMainPage: boolean = window.location.pathname === AppRoute.Main;
-  const isSignInPage: boolean = window.location.pathname === AppRoute.SignIn;
-
   return (
     <BrowserRouter>
-      {!isSignInPage && <Header isMainPage={isMainPage} isAuthorized={isAuthorized} />}
+      <Header isAuthorized={isAuthorized} />
       <Switch>
         <Route exact path={AppRoute.Main}>
           <Main />
