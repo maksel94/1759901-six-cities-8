@@ -1,5 +1,5 @@
-import * as constants from '../../constants/constants';
 import Menu from '../menu/menu';
+import * as constants from '../../constants';
 
 function MainWithData(): JSX.Element {
   return (
