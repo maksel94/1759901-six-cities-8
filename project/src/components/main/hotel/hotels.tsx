@@ -1,4 +1,4 @@
-import { Hotel } from '../../types/hotel';
+import { Hotel } from '../../../types/hotel';
 import HotelCard from './hotel-card';
 
 type HotelsProps = {

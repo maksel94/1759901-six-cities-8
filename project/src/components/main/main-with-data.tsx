@@ -1,6 +1,6 @@
 import Menu from '../menu/menu';
 import Sort from '../sort/sort';
-import Hotels from '../hotel/hotels';
+import Hotels from './hotel/hotels';
 import { hotels } from '../../mock-data';
 
 type MainWithDataProps = {

@@ -25,12 +25,15 @@ function App(): JSX.Element {
         <Route exact path={AppRoute.Room}>
           <Room />
         </Route>
-        <PrivateRoute
+        <Route exact path={AppRoute.Favorites}>
+          <Favorites />
+        </Route>
+        {/* <PrivateRoute
           exact
           path={AppRoute.Favorites}
           render={() => <Favorites />}
           authorizationStatus={AuthorizationStatus.NoAuth}
-        />
+        /> */}
         <Route>
           <NotFoundPage />
         </Route>
