@@ -1,26 +1,22 @@
-function RoomGallery(): JSX.Element {
-  return (
-    <div className="property__gallery">
-      <div className="property__image-wrapper">
-        <img className="property__image" src="img/room.jpg" alt="Photo studio" />
+type RoomGalleryProps = {
+  images: string[];
+};
+
+function RoomGallery({ images }: RoomGalleryProps): JSX.Element {
+  if (images.length > 6) {
+    images.length = 6;
+  }
+
+  const imageRender = (image: string, index: number) => {
+    const key = `image_${index}`;
+    return (
+      <div key={key} className="property__image-wrapper">
+        <img className="property__image" src={image} alt="Photo studio" />
       </div>
-      <div className="property__image-wrapper">
-        <img className="property__image" src="img/apartment-01.jpg" alt="Photo studio" />
-      </div>
-      <div className="property__image-wrapper">
-        <img className="property__image" src="img/apartment-02.jpg" alt="Photo studio" />
-      </div>
-      <div className="property__image-wrapper">
-        <img className="property__image" src="img/apartment-03.jpg" alt="Photo studio" />
-      </div>
-      <div className="property__image-wrapper">
-        <img className="property__image" src="img/studio-01.jpg" alt="Photo studio" />
-      </div>
-      <div className="property__image-wrapper">
-        <img className="property__image" src="img/apartment-01.jpg" alt="Photo studio" />
-      </div>
-    </div>
-  );
+    );
+  };
+
+  return <div className="property__gallery">{images.map(imageRender)}</div>;
 }
 
 export default RoomGallery;

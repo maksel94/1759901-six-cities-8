@@ -22,7 +22,7 @@ function HotelCard({ hotel }: HotelCardProps): JSX.Element {
         <a href="#">
           <img
             className="place-card__image"
-            src={hotel.previewImage}
+            src={hotel.images[0]}
             width="260"
             height="200"
             alt="Place image"

@@ -1,21 +1,23 @@
+import { hotels } from '../../mock-data';
 import NearPlaces from './near-places';
 import RoomDetails from './room-details';
 import RoomGallery from './room-gallery';
 
 function Room(): JSX.Element {
+  const hotel = hotels[0];
   return (
     <main className="page__main page__main--property">
       <section className="property">
         <div className="property__gallery-container container">
-          <RoomGallery />
+          <RoomGallery images={hotel.images} />
         </div>
         <div className="property__container container">
-          <RoomDetails />
+          <RoomDetails hotel={hotel} />
         </div>
         <section className="property__map map"></section>
       </section>
       <div className="container">
-        <NearPlaces />
+        <NearPlaces hotels={hotels} />
       </div>
     </main>
   );

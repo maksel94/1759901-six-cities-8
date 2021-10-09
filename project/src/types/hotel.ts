@@ -21,5 +21,5 @@ export type Hotel = {
   location: Location;
   maxAdults: number;
   price: number;
-  ratting: number;
+  rating: number;
 };

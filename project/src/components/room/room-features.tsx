@@ -1,9 +1,19 @@
-function RoomFeatures(): JSX.Element {
+import { ApartmentType } from '../../enums/apartment-type';
+
+type RoomFeaturesProps = {
+  apartmentType: ApartmentType;
+  bedrooms: number;
+  maxAdults: number;
+};
+
+function RoomFeatures({ apartmentType, bedrooms, maxAdults }: RoomFeaturesProps): JSX.Element {
   return (
     <ul className="property__features">
-      <li className="property__feature property__feature--entire">Apartment</li>
-      <li className="property__feature property__feature--bedrooms">3 Bedrooms</li>
-      <li className="property__feature property__feature--adults">Max 4 adults</li>
+      <li className="property__feature property__feature--entire">
+        {ApartmentType[apartmentType]}
+      </li>
+      <li className="property__feature property__feature--bedrooms">{bedrooms} Bedrooms</li>
+      <li className="property__feature property__feature--adults">Max {maxAdults} adults</li>
     </ul>
   );
 }
