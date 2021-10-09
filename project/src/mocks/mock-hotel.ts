@@ -1,6 +1,6 @@
-import { Hotel } from './types/hotel';
-import { ApartmentType } from './enums/apartment-type';
-import { Goods } from './enums/good';
+import { Hotel } from '../types/hotel';
+import { ApartmentType } from '../enums/apartment-type';
+import { Goods } from '../enums/good';
 
 // <div className="property__image-wrapper">
 // <img className="property__image" src="img/room.jpg" alt="Photo studio" />

@@ -1,4 +1,4 @@
-import { hotels } from '../../mock-data';
+import { hotels } from '../../mocks/mock-hotel';
 import NearPlaces from './near-places';
 import RoomDetails from './room-details';
 import RoomGallery from './room-gallery';

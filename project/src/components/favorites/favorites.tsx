@@ -1,4 +1,4 @@
-import { hotels } from '../../mock-data';
+import { hotels } from '../../mocks/mock-hotel';
 import FavoritesEmpty from './favorites-empty';
 import FavoritesWithData from './favorites-with-data';
 

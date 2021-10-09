@@ -1,7 +1,7 @@
 import Menu from '../menu/menu';
 import Sort from '../sort/sort';
 import Hotels from './hotel/hotels';
-import { hotels } from '../../mock-data';
+import { hotels } from '../../mocks/mock-hotel';
 
 type MainWithDataProps = {
   placesCount: number;
