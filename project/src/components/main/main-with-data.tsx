@@ -1,3 +1,6 @@
+import { useState } from 'react';
+
+import { Hotel } from '../../types/hotel';
 import { HotelComponentProps } from '../../types/hotel-component-props';
 import Menu from '../menu/menu';
 import Sort from '../sort/sort';
@@ -8,6 +11,8 @@ type MainWithDataProps = HotelComponentProps & {
 };
 
 function MainWithData({ hotels, placesCount }: MainWithDataProps): JSX.Element {
+  const [activeHotel, setActiveHotel] = useState<Hotel | null>(null);
+
   return (
     <main className="page__main page__main--index">
       <h1 className="visually-hidden">Cities</h1>
@@ -20,7 +25,7 @@ function MainWithData({ hotels, placesCount }: MainWithDataProps): JSX.Element {
             <h2 className="visually-hidden">Places</h2>
             <b className="places__found">{placesCount} places to stay in Amsterdam</b>
             <Sort />
-            <Hotels hotels={hotels} />
+            <Hotels hotels={hotels} setActiveHotel={setActiveHotel} />
           </section>
           <div className="cities__right-section">
             <section className="cities__map map"></section>

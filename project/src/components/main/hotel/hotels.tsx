@@ -1,11 +1,16 @@
+import { Dispatch, SetStateAction } from 'react';
 import { Hotel } from '../../../types/hotel';
 import { HotelComponentProps } from '../../../types/hotel-component-props';
 import HotelCard from './hotel-card';
 
-function Hotels({ hotels }: HotelComponentProps): JSX.Element {
+type HotelsProps = HotelComponentProps & {
+  setActiveHotel: Dispatch<SetStateAction<Hotel | null>>;
+};
+
+function Hotels({ hotels, setActiveHotel }: HotelsProps): JSX.Element {
   const hotelRender = (hotel: Hotel) => {
     const key = `hotel_${hotel.id}`;
-    return <HotelCard key={key} hotel={hotel} />;
+    return <HotelCard key={key} hotel={hotel} setActiveHotel={setActiveHotel} />;
   };
 
   return (

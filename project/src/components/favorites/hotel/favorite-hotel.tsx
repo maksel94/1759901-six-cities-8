@@ -1,6 +1,7 @@
 import { Hotel } from '../../../types/hotel';
 import * as constants from '../../../constants';
 import { ApartmentType } from '../../../enums/apartment-type';
+import { Link } from 'react-router-dom';
 
 type FavoriteHotelProps = {
   hotel: Hotel;
@@ -9,11 +10,12 @@ type FavoriteHotelProps = {
 //TODO: add rating
 function FavoriteHotel({ hotel }: FavoriteHotelProps): JSX.Element {
   const hotelType = ApartmentType[hotel.type];
+  const roomRedirectLink = `${constants.AppRoute.Room}${hotel.id}`;
 
   return (
     <article className="favorites__card place-card">
       <div className="favorites__image-wrapper place-card__image-wrapper">
-        <a href="#">
+        <Link to={roomRedirectLink}>
           <img
             className="place-card__image"
             src={hotel.previewImage}
@@ -21,7 +23,7 @@ function FavoriteHotel({ hotel }: FavoriteHotelProps): JSX.Element {
             height="110"
             alt="Place image"
           />
-        </a>
+        </Link>
       </div>
       <div className="favorites__card-info place-card__info">
         <div className="place-card__price-wrapper">
@@ -46,7 +48,7 @@ function FavoriteHotel({ hotel }: FavoriteHotelProps): JSX.Element {
           </div>
         </div>
         <h2 className="place-card__name">
-          <a href="#">{hotel.title}</a>
+          <Link to={roomRedirectLink}>{hotel.title}</Link>
         </h2>
         <p className="place-card__type">{hotelType}</p>
       </div>

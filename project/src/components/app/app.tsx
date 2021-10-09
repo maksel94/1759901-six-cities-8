@@ -18,6 +18,8 @@ type AppProps = HotelComponentProps & {
 };
 
 function App({ hotels, reviews }: AppProps): JSX.Element {
+  const favoritesRender = () => <Favorites hotels={hotels} />;
+
   return (
     <BrowserRouter>
       <Header isAuthorized={isAuthorized} />
@@ -28,13 +30,13 @@ function App({ hotels, reviews }: AppProps): JSX.Element {
         <Route exact path={AppRoute.SignIn}>
           <SignIn />
         </Route>
-        <Route exact path={AppRoute.Room}>
-          <Room hotel={hotels[0]} nearPlaces={hotels} reviews={reviews} />
+        <Route exact path={`${AppRoute.Room}:id`}>
+          <Room hotels={hotels} nearPlaces={hotels} reviews={reviews} />
         </Route>
         <PrivateRoute
           exact
           path={AppRoute.Favorites}
-          render={() => <Favorites hotels={hotels} />}
+          render={favoritesRender}
           authorizationStatus={AuthorizationStatus.NoAuth}
         />
         <Route>

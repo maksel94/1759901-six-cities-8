@@ -1,16 +1,29 @@
+import { Redirect, useParams } from 'react-router';
 import { Comment } from '../../types/comment';
 import { Hotel } from '../../types/hotel';
 import NearPlaces from './near-places';
 import RoomDetails from './room-details';
 import RoomGallery from './room-gallery';
+import { AppRoute } from '../../constants';
+import { RoomRouterProps } from '../../types/room-router-props';
 
 type RoomProps = {
-  hotel: Hotel;
+  hotels: Hotel[];
   nearPlaces: Hotel[];
   reviews: Comment[];
 };
 
-function Room({ hotel, nearPlaces, reviews }: RoomProps): JSX.Element {
+function Room({ hotels, nearPlaces, reviews }: RoomProps): JSX.Element {
+  const { id } = useParams<RoomRouterProps>();
+  let hotel: Hotel | undefined;
+
+  if (window.location.pathname.includes(AppRoute.Room)) {
+    hotel = hotels.find((x) => x.id === id);
+  }
+
+  if (!hotel) {
+    return <Redirect to="not-found" />;
+  }
   return (
     <main className="page__main page__main--property">
       <section className="property">

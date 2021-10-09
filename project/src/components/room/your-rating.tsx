@@ -1,4 +1,10 @@
-function YourRating(): JSX.Element {
+import { ChangeEvent } from 'react';
+
+type YourRatingProps = {
+  setRating: (e: ChangeEvent<HTMLInputElement>) => void;
+};
+
+function YourRating({ setRating }: YourRatingProps): JSX.Element {
   return (
     <>
       <input
@@ -7,6 +13,7 @@ function YourRating(): JSX.Element {
         value="5"
         id="5-stars"
         type="radio"
+        onFocus={setRating}
       />
       <label htmlFor="5-stars" className="reviews__rating-label form__rating-label" title="perfect">
         <svg className="form__star-image" width="37" height="33">
@@ -20,6 +27,7 @@ function YourRating(): JSX.Element {
         value="4"
         id="4-stars"
         type="radio"
+        onFocus={setRating}
       />
       <label htmlFor="4-stars" className="reviews__rating-label form__rating-label" title="good">
         <svg className="form__star-image" width="37" height="33">
@@ -33,6 +41,7 @@ function YourRating(): JSX.Element {
         value="3"
         id="3-stars"
         type="radio"
+        onFocus={setRating}
       />
       <label htmlFor="3-stars" className="reviews__rating-label form__rating-label" title="not bad">
         <svg className="form__star-image" width="37" height="33">
@@ -46,6 +55,7 @@ function YourRating(): JSX.Element {
         value="2"
         id="2-stars"
         type="radio"
+        onFocus={setRating}
       />
       <label htmlFor="2-stars" className="reviews__rating-label form__rating-label" title="badly">
         <svg className="form__star-image" width="37" height="33">
@@ -59,6 +69,7 @@ function YourRating(): JSX.Element {
         value="1"
         id="1-star"
         type="radio"
+        onFocus={setRating}
       />
       <label htmlFor="1-star" className="reviews__rating-label form__rating-label" title="terribly">
         <svg className="form__star-image" width="37" height="33">

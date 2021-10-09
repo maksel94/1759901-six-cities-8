@@ -1,15 +1,19 @@
+import { Dispatch, SetStateAction } from 'react';
 import { Hotel } from '../../../types/hotel';
 import * as constants from '../../../constants';
 import { ApartmentType } from '../../../enums/apartment-type';
+import { Link } from 'react-router-dom';
 
 type HotelCardProps = {
   hotel: Hotel;
+  setActiveHotel: Dispatch<SetStateAction<Hotel | null>>;
 };
 
 //TODO: add rating
-function HotelCard({ hotel }: HotelCardProps): JSX.Element {
+function HotelCard({ hotel, setActiveHotel }: HotelCardProps): JSX.Element {
   const bookmarkIconStyle = hotel.isFavorite ? 'place-card__bookmark-button--active' : '';
   const hotelType = ApartmentType[hotel.type];
+  const linkToHotelDetails = `${constants.AppRoute.Room}${hotel.id}`;
 
   return (
     <article className="cities__place-card place-card">
@@ -19,7 +23,7 @@ function HotelCard({ hotel }: HotelCardProps): JSX.Element {
         </div>
       )}
       <div className="cities__image-wrapper place-card__image-wrapper">
-        <a href="#">
+        <Link to={linkToHotelDetails}>
           <img
             className="place-card__image"
             src={hotel.images[0]}
@@ -27,7 +31,7 @@ function HotelCard({ hotel }: HotelCardProps): JSX.Element {
             height="200"
             alt="Place image"
           />
-        </a>
+        </Link>
       </div>
       <div className="place-card__info">
         <div className="place-card__price-wrapper">
@@ -52,7 +56,7 @@ function HotelCard({ hotel }: HotelCardProps): JSX.Element {
           </div>
         </div>
         <h2 className="place-card__name">
-          <a href="#">{hotel.title}</a>
+          <Link to={linkToHotelDetails}>{hotel.title}</Link>
         </h2>
         <p className="place-card__type">{hotelType}</p>
       </div>
