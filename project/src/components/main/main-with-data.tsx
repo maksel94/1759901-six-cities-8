@@ -10,6 +10,7 @@ type MainWithDataProps = HotelComponentProps & {
   placesCount: number;
 };
 
+//TODO: remove p tag with visually-hidden
 function MainWithData({ hotels, placesCount }: MainWithDataProps): JSX.Element {
   const [activeHotel, setActiveHotel] = useState<Hotel | null>(null);
 
@@ -32,6 +33,7 @@ function MainWithData({ hotels, placesCount }: MainWithDataProps): JSX.Element {
           </div>
         </div>
       </div>
+      <p className="visually-hidden">{activeHotel}</p>
     </main>
   );
 }

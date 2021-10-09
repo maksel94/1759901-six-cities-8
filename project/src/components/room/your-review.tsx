@@ -2,6 +2,7 @@ import { ChangeEvent, SyntheticEvent, useState } from 'react';
 import { RADIX } from '../../constants';
 import YourRating from './your-rating';
 
+//TODO: remove last p tag with visually-hidden
 function YourReview(): JSX.Element {
   const [rating, setRating] = useState<number>(0);
   const [comment, setComment] = useState<string>('');
@@ -42,6 +43,10 @@ function YourReview(): JSX.Element {
           Submit
         </button>
       </div>
+      <p className="visually-hidden">
+        {rating}
+        {comment}
+      </p>
     </form>
   );
 }
