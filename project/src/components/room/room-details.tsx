@@ -1,3 +1,4 @@
+import { Comment } from '../../types/comment';
 import { Hotel } from '../../types/hotel';
 import RoomFeatures from './room-features';
 import RoomHost from './room-host';
@@ -10,10 +11,11 @@ import RoomReviews from './room-reviews';
 
 type RoomDetailsProps = {
   hotel: Hotel;
+  reviews: Comment[];
 };
 
 //TODO: question how to map room reviews?.
-function RoomDetails({ hotel }: RoomDetailsProps): JSX.Element {
+function RoomDetails({ hotel, reviews }: RoomDetailsProps): JSX.Element {
   return (
     <div className="property__wrapper">
       {hotel.isPremium && <RoomMark />}
@@ -27,7 +29,7 @@ function RoomDetails({ hotel }: RoomDetailsProps): JSX.Element {
       <RoomPrice price={hotel.price} />
       <RoomInside goods={hotel.goods} />
       <RoomHost host={hotel.host} propertyDescription={hotel.description} />
-      <RoomReviews />
+      <RoomReviews reviews={reviews} />
     </div>
   );
 }
