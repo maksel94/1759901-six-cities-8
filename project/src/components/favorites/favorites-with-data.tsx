@@ -1,14 +1,13 @@
-import { getFavoriteHotels, getGroupedHotels } from '../../service/hotels';
-import { Hotel } from '../../types/hotel';
+import { getGroupedHotels } from '../../service/hotels';
 import FavoriteHotels from './hotel/favorite-hotels';
+import { Hotel } from '../../types/hotel';
 
 type FavoritesWithDataProps = {
-  hotels: Hotel[];
+  favorites: Hotel[];
 };
 
-function FavoritesWithData({ hotels }: FavoritesWithDataProps): JSX.Element {
-  const favoriteHotels = getFavoriteHotels(hotels);
-  const groupedHotels = getGroupedHotels(favoriteHotels);
+function FavoritesWithData({ favorites }: FavoritesWithDataProps): JSX.Element {
+  const groupedHotels = getGroupedHotels(favorites);
   return (
     <main className="page__main page__main--favorites">
       <div className="page__favorites-container container">

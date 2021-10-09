@@ -1,9 +1,9 @@
 import { Hotel } from '../../../types/hotel';
+import { HotelComponentProps } from '../../../types/hotel-component-props';
 import FavoriteHotel from './favorite-hotel';
 
-type FavoriteGroupedHotelsProps = {
+type FavoriteGroupedHotelsProps = HotelComponentProps & {
   hotelName: string;
-  hotels: Hotel[];
 };
 
 function FavoriteGroupedHotels({ hotelName, hotels }: FavoriteGroupedHotelsProps): JSX.Element {

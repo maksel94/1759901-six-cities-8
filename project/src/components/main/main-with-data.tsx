@@ -1,13 +1,13 @@
+import { HotelComponentProps } from '../../types/hotel-component-props';
 import Menu from '../menu/menu';
 import Sort from '../sort/sort';
 import Hotels from './hotel/hotels';
-import { hotels } from '../../mocks/mock-hotels';
 
-type MainWithDataProps = {
+type MainWithDataProps = HotelComponentProps & {
   placesCount: number;
 };
 
-function MainWithData({ placesCount }: MainWithDataProps): JSX.Element {
+function MainWithData({ hotels, placesCount }: MainWithDataProps): JSX.Element {
   return (
     <main className="page__main page__main--index">
       <h1 className="visually-hidden">Cities</h1>

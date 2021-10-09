@@ -8,27 +8,33 @@ import NotFoundPage from '../not-fount-page/not-fount-page';
 import Room from '../room/room';
 import SignIn from '../sign-in/sign-in';
 import { AppRoute, AuthorizationStatus } from '../../constants';
+import { Comment } from '../../types/comment';
+import { HotelComponentProps } from '../../types/hotel-component-props';
 
 const isAuthorized = true;
 
-function App(): JSX.Element {
+type AppProps = HotelComponentProps & {
+  reviews: Comment[];
+};
+
+function App({ hotels, reviews }: AppProps): JSX.Element {
   return (
     <BrowserRouter>
       <Header isAuthorized={isAuthorized} />
       <Switch>
         <Route exact path={AppRoute.Main}>
-          <Main />
+          <Main hotels={hotels} />
         </Route>
         <Route exact path={AppRoute.SignIn}>
           <SignIn />
         </Route>
         <Route exact path={AppRoute.Room}>
-          <Room />
+          <Room hotel={hotels[0]} nearPlaces={hotels} />
         </Route>
         <PrivateRoute
           exact
           path={AppRoute.Favorites}
-          render={() => <Favorites />}
+          render={() => <Favorites hotels={hotels} />}
           authorizationStatus={AuthorizationStatus.NoAuth}
         />
         <Route>

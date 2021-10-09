@@ -1,10 +1,14 @@
-import { hotels } from '../../mocks/mock-hotels';
+import { Hotel } from '../../types/hotel';
 import NearPlaces from './near-places';
 import RoomDetails from './room-details';
 import RoomGallery from './room-gallery';
 
-function Room(): JSX.Element {
-  const hotel = hotels[0];
+type RoomProps = {
+  hotel: Hotel;
+  nearPlaces: Hotel[];
+};
+
+function Room({ hotel, nearPlaces }: RoomProps): JSX.Element {
   return (
     <main className="page__main page__main--property">
       <section className="property">
@@ -17,7 +21,7 @@ function Room(): JSX.Element {
         <section className="property__map map"></section>
       </section>
       <div className="container">
-        <NearPlaces hotels={hotels} />
+        <NearPlaces hotels={nearPlaces} />
       </div>
     </main>
   );

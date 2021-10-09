@@ -1,11 +1,11 @@
+import { HotelComponentProps } from '../../types/hotel-component-props';
 import MainEmpty from './main-empty';
 import MainWithData from './main-with-data';
 
-function Main(): JSX.Element {
-  const citiesPlaces = [1];
-  const placesCount = 312;
-  if (citiesPlaces.length) {
-    return <MainWithData placesCount={placesCount} />;
+function Main({ hotels }: HotelComponentProps): JSX.Element {
+  const placesCount = hotels.length;
+  if (placesCount > 0) {
+    return <MainWithData hotels={hotels} placesCount={placesCount} />;
   } else {
     return <MainEmpty />;
   }

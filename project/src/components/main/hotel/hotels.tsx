@@ -1,11 +1,8 @@
 import { Hotel } from '../../../types/hotel';
+import { HotelComponentProps } from '../../../types/hotel-component-props';
 import HotelCard from './hotel-card';
 
-type HotelsProps = {
-  hotels: Hotel[];
-};
-
-function Hotels({ hotels }: HotelsProps): JSX.Element {
+function Hotels({ hotels }: HotelComponentProps): JSX.Element {
   const hotelRender = (hotel: Hotel) => {
     const key = `hotel_${hotel.id}`;
     return <HotelCard key={key} hotel={hotel} />;
