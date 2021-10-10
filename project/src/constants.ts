@@ -13,6 +13,7 @@ export enum AuthorizationStatus {
   Unknown = 'UNKNOWN',
 }
 
+export const JustForCommitingToMissedTask = [];
 export const WIDTH_80: CSSProperties = { width: '80%' };
 export const WIDTH_100: CSSProperties = { width: '100%' };
 
