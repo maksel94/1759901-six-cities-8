@@ -1,6 +1,6 @@
 import { Redirect, useParams } from 'react-router';
 import { Comment } from '../../types/comment';
-import { Hotel } from '../../types/hotel';
+import { Hotel } from '../../types/hotel/hotel';
 import NearPlaces from './near-places';
 import RoomDetails from './room-details';
 import RoomGallery from './room-gallery';

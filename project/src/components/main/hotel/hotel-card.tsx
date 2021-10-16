@@ -1,22 +1,34 @@
 import { Dispatch, SetStateAction } from 'react';
-import { Hotel } from '../../../types/hotel';
+import { Hotel } from '../../../types/hotel/hotel';
 import * as constants from '../../../constants';
 import { ApartmentType } from '../../../enums/apartment-type';
 import { Link } from 'react-router-dom';
 
 type HotelCardProps = {
   hotel: Hotel;
-  setActiveHotel: Dispatch<SetStateAction<Hotel | null>>;
+  setSelectedHotel: Dispatch<SetStateAction<Hotel | undefined>>;
 };
 
 //TODO: add rating
-function HotelCard({ hotel, setActiveHotel }: HotelCardProps): JSX.Element {
+function HotelCard({ hotel, setSelectedHotel }: HotelCardProps): JSX.Element {
   const bookmarkIconStyle = hotel.isFavorite ? 'place-card__bookmark-button--active' : '';
   const hotelType = ApartmentType[hotel.type];
   const linkToHotelDetails = `${constants.AppRoute.Room}${hotel.id}`;
 
+  const onHotelHover = (): void => {
+    setSelectedHotel(hotel);
+  };
+
+  const onHotelLeave = (): void => {
+    setSelectedHotel(undefined);
+  };
+
   return (
-    <article className="cities__place-card place-card">
+    <article
+      className="cities__place-card place-card"
+      onMouseEnter={onHotelHover}
+      onMouseLeave={onHotelLeave}
+    >
       {hotel.isPremium && (
         <div className="place-card__mark">
           <span>Premium</span>

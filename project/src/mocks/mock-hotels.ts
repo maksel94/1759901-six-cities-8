@@ -1,25 +1,6 @@
-import { Hotel } from '../types/hotel';
+import { Hotel } from '../types/hotel/hotel';
 import { ApartmentType } from '../enums/apartment-type';
 import { Goods } from '../enums/good';
-
-// <div className="property__image-wrapper">
-// <img className="property__image" src="img/room.jpg" alt="Photo studio" />
-// </div>
-// <div className="property__image-wrapper">
-// <img className="property__image" src="img/apartment-01.jpg" alt="Photo studio" />
-// </div>
-// <div className="property__image-wrapper">
-// <img className="property__image" src="img/apartment-02.jpg" alt="Photo studio" />
-// </div>
-// <div className="property__image-wrapper">
-// <img className="property__image" src="img/apartment-03.jpg" alt="Photo studio" />
-// </div>
-// <div className="property__image-wrapper">
-// <img className="property__image" src="img/studio-01.jpg" alt="Photo studio" />
-// </div>
-// <div className="property__image-wrapper">
-// <img className="property__image" src="img/apartment-01.jpg" alt="Photo studio" />
-// </div>
 
 export const hotels: Hotel[] = [
   {
@@ -28,7 +9,10 @@ export const hotels: Hotel[] = [
     title: 'Amsterdam best hotel',
     type: ApartmentType.Hotel,
     description: 'Amsterdam hotel',
-    city: { name: 'Amsterdam', location: { latitude: 1, longitude: 1.1, zoom: 1 } },
+    city: {
+      name: 'Amsterdam',
+      location: { latitude: 52.3909553943508, longitude: 4.85309666406198, zoom: 1 },
+    },
     bedrooms: 3,
     goods: [Goods.CableTV, Goods.CoffeeMachine, Goods.Dishwasher, Goods.Heating],
     host: { id: 'host_1', name: 'host 1', avatarUrl: 'img/avatar-angelina.jpg', isPro: true },
@@ -54,7 +38,10 @@ export const hotels: Hotel[] = [
     title: 'Amsterdam best hotel 2',
     type: ApartmentType.Apartment,
     description: 'Amsterdam hotel',
-    city: { name: 'Amsterdam', location: { latitude: 1, longitude: 1.1, zoom: 1 } },
+    city: {
+      name: 'Amsterdam',
+      location: { latitude: 52.3909553943508, longitude: 4.85309666406198, zoom: 1 },
+    },
     bedrooms: 2,
     goods: [Goods.CableTV],
     host: { id: 'host_1', name: 'host 1', avatarUrl: '', isPro: true },
@@ -62,7 +49,7 @@ export const hotels: Hotel[] = [
     images: ['img/apartment-02.jpg'],
     isFavorite: true,
     isPremium: false,
-    location: { latitude: 1.2, longitude: 1.1, zoom: 2 },
+    location: { latitude: 52.369553943508, longitude: 4.85309666406198, zoom: 2 },
     maxAdults: 4,
     price: 120,
     rating: 4.5,
@@ -73,7 +60,10 @@ export const hotels: Hotel[] = [
     title: 'Amsterdam best hotel',
     type: ApartmentType.Apartment,
     description: 'Amsterdam hotel',
-    city: { name: 'Amsterdam', location: { latitude: 1, longitude: 1.1, zoom: 1 } },
+    city: {
+      name: 'Amsterdam',
+      location: { latitude: 52.3909553943508, longitude: 4.85309666406198, zoom: 1 },
+    },
     bedrooms: 2,
     goods: [Goods.CableTV],
     host: { id: 'host_1', name: 'host 1', avatarUrl: '', isPro: true },
@@ -81,7 +71,7 @@ export const hotels: Hotel[] = [
     images: ['img/apartment-03.jpg'],
     isFavorite: false,
     isPremium: true,
-    location: { latitude: 1.2, longitude: 1.1, zoom: 2 },
+    location: { latitude: 52.3909553943508, longitude: 4.929309666406198, zoom: 2 },
     maxAdults: 4,
     price: 120,
     rating: 4.5,

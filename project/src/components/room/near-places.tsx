@@ -1,4 +1,4 @@
-import { Hotel } from '../../types/hotel';
+import { Hotel } from '../../types/hotel/hotel';
 import NearPlace from './near-place';
 
 type NearPlacesProps = { hotels: Hotel[] };

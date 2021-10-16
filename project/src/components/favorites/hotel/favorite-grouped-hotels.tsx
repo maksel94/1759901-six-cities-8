@@ -1,5 +1,5 @@
-import { Hotel } from '../../../types/hotel';
-import { HotelComponentProps } from '../../../types/hotel-component-props';
+import { Hotel } from '../../../types/hotel/hotel';
+import { HotelComponentProps } from '../../../types/hotel/hotel-component-props';
 import FavoriteHotel from './favorite-hotel';
 
 type FavoriteGroupedHotelsProps = HotelComponentProps & {
