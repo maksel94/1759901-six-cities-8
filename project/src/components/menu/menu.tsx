@@ -20,7 +20,7 @@ function Menu({ menuItems, selectedMenuItem, setSelectedMenuItem }: MenuProps): 
     const itemActiveStyle = selectedMenuItem?.id === menuItem.id ? 'tabs__item--active' : '';
 
     return (
-      <li className="locations__item">
+      <li className="locations__item" key={menuItem.id}>
         <a
           className={`locations__item-link tabs__item ${itemActiveStyle}`}
           href="#"

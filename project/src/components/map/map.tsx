@@ -33,6 +33,14 @@ function Map(props: MapProps): JSX.Element {
   const map = useMap(mapRef, city);
 
   useEffect(() => {
+    if (!map) {
+      return;
+    }
+
+    map.setView([city.location.latitude, city.location.longitude], city.location.zoom);
+  }, [city, map]);
+
+  useEffect(() => {
     if (map) {
       points.forEach((point) => {
         const marker = new Marker({
