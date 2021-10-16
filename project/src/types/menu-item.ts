@@ -1,6 +1,7 @@
-export type MenuItem = {
+import { City } from './city';
+
+export type MenuItem = Omit<City, 'location'> & {
   id: string;
-  name: string;
 };
 
 export type MenuItems = MenuItem[];
