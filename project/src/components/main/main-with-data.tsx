@@ -1,7 +1,8 @@
 import { useState } from 'react';
 
-import { Hotel } from '../../types/hotel';
-import { HotelComponentProps } from '../../types/hotel-component-props';
+import { Hotel } from '../../types/hotel/hotel';
+import { HotelComponentProps } from '../../types/hotel/hotel-component-props';
+import Map from '../map/map';
 import Menu from '../menu/menu';
 import Sort from '../sort/sort';
 import Hotels from './hotel/hotels';
@@ -12,7 +13,8 @@ type MainWithDataProps = HotelComponentProps & {
 
 //TODO: remove p tag with visually-hidden
 function MainWithData({ hotels, placesCount }: MainWithDataProps): JSX.Element {
-  const [activeHotel, setActiveHotel] = useState<Hotel | null>(null);
+  const [selectedHotel, setSelectedHotel] = useState<Hotel | undefined>();
+  const city = hotels[0].city;
 
   return (
     <main className="page__main page__main--index">
@@ -26,14 +28,14 @@ function MainWithData({ hotels, placesCount }: MainWithDataProps): JSX.Element {
             <h2 className="visually-hidden">Places</h2>
             <b className="places__found">{placesCount} places to stay in Amsterdam</b>
             <Sort />
-            <Hotels hotels={hotels} setActiveHotel={setActiveHotel} />
+            <Hotels hotels={hotels} setSelectedHotel={setSelectedHotel} />
           </section>
           <div className="cities__right-section">
-            <section className="cities__map map"></section>
+            <Map city={city} points={hotels} selectedPoint={selectedHotel} />
           </div>
         </div>
       </div>
-      <p className="visually-hidden">{activeHotel}</p>
+      <p className="visually-hidden">{selectedHotel?.title}</p>
     </main>
   );
 }

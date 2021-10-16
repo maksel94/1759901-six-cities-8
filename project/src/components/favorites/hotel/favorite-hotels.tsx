@@ -1,6 +1,6 @@
 import { Dictionary } from '@reduxjs/toolkit';
 
-import { Hotel } from '../../../types/hotel';
+import { Hotel } from '../../../types/hotel/hotel';
 import FavoriteGroupedHotels from './favorite-grouped-hotels';
 
 type FavoriteHotelsProps = {

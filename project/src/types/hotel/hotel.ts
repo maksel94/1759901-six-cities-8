@@ -1,13 +1,12 @@
-import { ApartmentType } from '../enums/apartment-type';
-import { Goods } from '../enums/good';
-import { City } from './city';
-import { Host } from './host';
-import { Location } from './location';
+import { ApartmentType } from '../../enums/apartment-type';
+import { Goods } from '../../enums/good';
+import { City } from '../city';
+import { Host } from '../host';
+import { MapPoint } from '../map-point';
 
-export type Hotel = {
+export type Hotel = MapPoint & {
   id: string;
   name: string;
-  title: string;
   type: ApartmentType;
   description: string;
   city: City;
@@ -18,7 +17,6 @@ export type Hotel = {
   images: string[];
   isFavorite: boolean;
   isPremium: boolean;
-  location: Location;
   maxAdults: number;
   price: number;
   rating: number;

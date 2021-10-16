@@ -1,4 +1,4 @@
-import { Hotel } from '../../../types/hotel';
+import { Hotel } from '../../../types/hotel/hotel';
 import * as constants from '../../../constants';
 import { ApartmentType } from '../../../enums/apartment-type';
 import { Link } from 'react-router-dom';

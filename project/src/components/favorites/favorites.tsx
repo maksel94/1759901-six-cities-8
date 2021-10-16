@@ -1,5 +1,5 @@
 import { getFavoriteHotels } from '../../service/hotels';
-import { HotelComponentProps } from '../../types/hotel-component-props';
+import { HotelComponentProps } from '../../types/hotel/hotel-component-props';
 import FavoritesEmpty from './favorites-empty';
 import FavoritesWithData from './favorites-with-data';
 

@@ -1,5 +1,5 @@
 import { Comment } from '../../types/comment';
-import { Hotel } from '../../types/hotel';
+import { Hotel } from '../../types/hotel/hotel';
 import RoomFeatures from './room-features';
 import RoomHost from './room-host';
 import RoomInside from './room-inside';

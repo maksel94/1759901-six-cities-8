@@ -1,6 +1,6 @@
 import { getGroupedHotels } from '../../service/hotels';
 import FavoriteHotels from './hotel/favorite-hotels';
-import { Hotel } from '../../types/hotel';
+import { Hotel } from '../../types/hotel/hotel';
 
 type FavoritesWithDataProps = {
   favorites: Hotel[];

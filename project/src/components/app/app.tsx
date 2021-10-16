@@ -9,7 +9,7 @@ import Room from '../room/room';
 import SignIn from '../sign-in/sign-in';
 import { AppRoute, AuthorizationStatus } from '../../constants';
 import { Comment } from '../../types/comment';
-import { HotelComponentProps } from '../../types/hotel-component-props';
+import { HotelComponentProps } from '../../types/hotel/hotel-component-props';
 
 const isAuthorized = true;
 

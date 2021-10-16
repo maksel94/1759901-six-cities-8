@@ -1,4 +1,4 @@
-import { HotelComponentProps } from '../../types/hotel-component-props';
+import { HotelComponentProps } from '../../types/hotel/hotel-component-props';
 import MainEmpty from './main-empty';
 import MainWithData from './main-with-data';
 
