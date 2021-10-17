@@ -1,6 +1,9 @@
+import { Link } from 'react-router-dom';
+
 import { Hotel } from '../../types/hotel/hotel';
 import * as constants from '../../constants';
 import { ApartmentType } from '../../enums/apartment-type';
+import { getRoomUrl } from '../../service/hotels';
 
 type NearPlaceProps = {
   hotel: Hotel;
@@ -9,11 +12,12 @@ type NearPlaceProps = {
 //TODO: add stars rating
 function NearPlace({ hotel }: NearPlaceProps): JSX.Element {
   const favoriteButtonStyle = hotel.isFavorite ? 'place-card__bookmark-button--active' : '';
+  const linkToHotelDetails = getRoomUrl(hotel.id);
 
   return (
     <article className="near-places__card place-card">
       <div className="near-places__image-wrapper place-card__image-wrapper">
-        <a href="#">
+        <Link to={linkToHotelDetails}>
           <img
             className="place-card__image"
             src={hotel.images[0]}
@@ -21,7 +25,7 @@ function NearPlace({ hotel }: NearPlaceProps): JSX.Element {
             height="200"
             alt="Place image"
           />
-        </a>
+        </Link>
       </div>
       <div className="place-card__info">
         <div className="place-card__price-wrapper">

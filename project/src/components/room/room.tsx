@@ -6,6 +6,7 @@ import RoomDetails from './room-details';
 import RoomGallery from './room-gallery';
 import { AppRoute } from '../../constants';
 import { RoomRouterProps } from '../../types/room-router-props';
+import PropertyMap from '../map/property-map';
 
 type RoomProps = {
   hotels: Hotel[];
@@ -33,7 +34,7 @@ function Room({ hotels, nearPlaces, reviews }: RoomProps): JSX.Element {
         <div className="property__container container">
           <RoomDetails hotel={hotel} reviews={reviews} />
         </div>
-        <section className="property__map map"></section>
+        <PropertyMap cityLocation={hotel.city.location} points={hotels} selectedPoint={hotel} />
       </section>
       <div className="container">
         <NearPlaces hotels={nearPlaces} />

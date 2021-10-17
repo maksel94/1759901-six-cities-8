@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import { Hotel } from '../../types/hotel/hotel';
 import { HotelComponentProps } from '../../types/hotel/hotel-component-props';
-import Map from '../map/map';
+import CityMap from '../map/city-map';
 import Sort from '../sort/sort';
 import Hotels from './hotel/hotels';
 
@@ -26,7 +26,7 @@ function MainWithData({ hotels, placesCount }: MainWithDataProps): JSX.Element {
             <Hotels hotels={hotels} setSelectedHotel={setSelectedHotel} />
           </section>
           <div className="cities__right-section">
-            <Map city={city} points={hotels} selectedPoint={selectedHotel} />
+            <CityMap cityLocation={city.location} points={hotels} selectedPoint={selectedHotel} />
           </div>
         </div>
       </div>

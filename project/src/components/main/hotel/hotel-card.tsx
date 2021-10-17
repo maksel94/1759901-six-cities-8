@@ -3,6 +3,7 @@ import { Hotel } from '../../../types/hotel/hotel';
 import * as constants from '../../../constants';
 import { ApartmentType } from '../../../enums/apartment-type';
 import { Link } from 'react-router-dom';
+import { getRoomUrl } from '../../../service/hotels';
 
 type HotelCardProps = {
   hotel: Hotel;
@@ -13,7 +14,7 @@ type HotelCardProps = {
 function HotelCard({ hotel, setSelectedHotel }: HotelCardProps): JSX.Element {
   const bookmarkIconStyle = hotel.isFavorite ? 'place-card__bookmark-button--active' : '';
   const hotelType = ApartmentType[hotel.type];
-  const linkToHotelDetails = `${constants.AppRoute.Room}${hotel.id}`;
+  const linkToHotelDetails = getRoomUrl(hotel.id);
 
   const onHotelHover = (): void => {
     setSelectedHotel(hotel);

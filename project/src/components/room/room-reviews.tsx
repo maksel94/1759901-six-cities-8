@@ -12,10 +12,12 @@ function RoomReviews({ reviews }: RoomReviewsProps): JSX.Element {
     return <Review key={key} review={review} />;
   };
 
+  const reviewCount = reviews?.length ?? 0;
+
   return (
     <section className="property__reviews reviews">
       <h2 className="reviews__title">
-        Reviews &middot; <span className="reviews__amount">1</span>
+        Reviews &middot; <span className="reviews__amount">{reviewCount}</span>
       </h2>
       <ul className="reviews__list">{reviews.map(reviewRender)}</ul>
       <YourReview />
