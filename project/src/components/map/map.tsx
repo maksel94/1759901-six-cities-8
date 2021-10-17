@@ -1,16 +1,9 @@
 import { useRef, useEffect, CSSProperties } from 'react';
 import { Icon, Marker } from 'leaflet';
 import useMap from '../../hooks/useMap';
-import { City } from '../../types/city';
-import { MapPoint, MapPoints } from '../../types/map-point';
 import { URL_MARKER_DEFAULT, URL_MARKER_CURRENT } from '../../constants';
 import 'leaflet/dist/leaflet.css';
-
-type MapProps = {
-  city: City;
-  points: MapPoints;
-  selectedPoint: MapPoint | undefined;
-};
+import { MapProps } from '../../types/map/map-props';
 
 const defaultCustomIcon = new Icon({
   iconUrl: URL_MARKER_DEFAULT,
@@ -26,19 +19,23 @@ const currentCustomIcon = new Icon({
 
 const mapHeight: CSSProperties = { height: '500px' };
 
-function Map(props: MapProps): JSX.Element {
-  const { city, points, selectedPoint } = props;
-
+function Map({
+  cityLocation,
+  points,
+  selectedPoint,
+  className,
+  ...restProps
+}: MapProps): JSX.Element {
   const mapRef = useRef(null);
-  const map = useMap(mapRef, city);
+  const map = useMap(mapRef, cityLocation);
 
   useEffect(() => {
     if (!map) {
       return;
     }
 
-    map.setView([city.location.latitude, city.location.longitude], city.location.zoom);
-  }, [city, map]);
+    map.setView([cityLocation.latitude, cityLocation.longitude], cityLocation.zoom);
+  }, [cityLocation, map]);
 
   useEffect(() => {
     if (map) {
@@ -59,7 +56,9 @@ function Map(props: MapProps): JSX.Element {
     }
   }, [map, points, selectedPoint]);
 
-  return <section className="cities__map map" style={mapHeight} ref={mapRef}></section>;
+  return (
+    <section className={`map ${className}`} style={mapHeight} ref={mapRef} {...restProps}></section>
+  );
 }
 
 export default Map;

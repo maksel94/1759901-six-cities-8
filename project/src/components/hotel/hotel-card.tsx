@@ -1,31 +1,57 @@
 import { Dispatch, SetStateAction } from 'react';
-import { Hotel } from '../../../types/hotel/hotel';
-import * as constants from '../../../constants';
-import { ApartmentType } from '../../../enums/apartment-type';
+import { Hotel } from '../../types/hotel/hotel';
+import * as constants from '../../constants';
+import { ApartmentType } from '../../enums/apartment-type';
 import { Link } from 'react-router-dom';
+import { getRoomUrl } from '../../service/hotels';
+import { HotelCardType } from '../../enums/hotel-card-type';
 
 type HotelCardProps = {
   hotel: Hotel;
-  setSelectedHotel: Dispatch<SetStateAction<Hotel | undefined>>;
+  hotelCardType: HotelCardType;
+  setSelectedHotel?: Dispatch<SetStateAction<Hotel | undefined>>;
+};
+
+const hotelCardStyles = {
+  [HotelCardType.City]: {
+    placeStyle: 'cities__place-card',
+    imageWrapper: 'cities__image-wrapper',
+    cardInfo: '',
+  },
+  [HotelCardType.Favorite]: {
+    placeStyle: 'favorites__card',
+    imageWrapper: 'favorites__image-wrapper',
+    cardInfo: 'favorites__card-info',
+  },
+  [HotelCardType.Near]: {
+    placeStyle: 'near-places__card',
+    imageWrapper: 'near-places__image-wrapper',
+    cardInfo: '',
+  },
 };
 
 //TODO: add rating
-function HotelCard({ hotel, setSelectedHotel }: HotelCardProps): JSX.Element {
+function HotelCard({ hotel, hotelCardType, setSelectedHotel }: HotelCardProps): JSX.Element {
   const bookmarkIconStyle = hotel.isFavorite ? 'place-card__bookmark-button--active' : '';
   const hotelType = ApartmentType[hotel.type];
-  const linkToHotelDetails = `${constants.AppRoute.Room}${hotel.id}`;
+  const linkToHotelDetails = getRoomUrl(hotel.id);
+  const hotelCardStyle = hotelCardStyles[hotelCardType];
 
   const onHotelHover = (): void => {
-    setSelectedHotel(hotel);
+    if (setSelectedHotel) {
+      setSelectedHotel(hotel);
+    }
   };
 
   const onHotelLeave = (): void => {
-    setSelectedHotel(undefined);
+    if (setSelectedHotel) {
+      setSelectedHotel(undefined);
+    }
   };
 
   return (
     <article
-      className="cities__place-card place-card"
+      className={`${hotelCardStyle.placeStyle} place-card`}
       onMouseEnter={onHotelHover}
       onMouseLeave={onHotelLeave}
     >
@@ -34,7 +60,7 @@ function HotelCard({ hotel, setSelectedHotel }: HotelCardProps): JSX.Element {
           <span>Premium</span>
         </div>
       )}
-      <div className="cities__image-wrapper place-card__image-wrapper">
+      <div className={`${hotelCardStyle.imageWrapper} place-card__image-wrapper`}>
         <Link to={linkToHotelDetails}>
           <img
             className="place-card__image"
@@ -45,7 +71,7 @@ function HotelCard({ hotel, setSelectedHotel }: HotelCardProps): JSX.Element {
           />
         </Link>
       </div>
-      <div className="place-card__info">
+      <div className={`${hotelCardStyle.cardInfo} place-card__info`}>
         <div className="place-card__price-wrapper">
           <div className="place-card__price">
             <b className="place-card__price-value">&euro;{hotel.price}</b>
