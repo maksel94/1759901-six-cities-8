@@ -4,7 +4,7 @@ import { Hotel } from '../../types/hotel/hotel';
 import { HotelComponentProps } from '../../types/hotel/hotel-component-props';
 import CityMap from '../map/city-map';
 import Sort from '../sort/sort';
-import Hotels from './hotel/hotels';
+import Hotels from '../hotel/hotels';
 
 type MainWithDataProps = HotelComponentProps & {
   placesCount: number;

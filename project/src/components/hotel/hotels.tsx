@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction } from 'react';
-import { Hotel } from '../../../types/hotel/hotel';
-import { HotelComponentProps } from '../../../types/hotel/hotel-component-props';
+import { Hotel } from '../../types/hotel/hotel';
+import { HotelComponentProps } from '../../types/hotel/hotel-component-props';
 import HotelCard from './hotel-card';
 
 type HotelsProps = HotelComponentProps & {
