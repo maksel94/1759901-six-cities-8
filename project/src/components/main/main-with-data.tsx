@@ -4,7 +4,7 @@ import { Hotel } from '../../types/hotel/hotel';
 import { HotelComponentProps } from '../../types/hotel/hotel-component-props';
 import CityMap from '../map/city-map';
 import Sort from '../sort/sort';
-import Hotels from '../hotel/hotels';
+import CitiesHotels from '../hotel/cities-hotels';
 
 type MainWithDataProps = HotelComponentProps & {
   placesCount: number;
@@ -23,7 +23,7 @@ function MainWithData({ hotels, placesCount }: MainWithDataProps): JSX.Element {
             <h2 className="visually-hidden">Places</h2>
             <b className="places__found">{placesCount} places to stay in Amsterdam</b>
             <Sort />
-            <Hotels hotels={hotels} setSelectedHotel={setSelectedHotel} />
+            <CitiesHotels hotels={hotels} setSelectedHotel={setSelectedHotel} />
           </section>
           <div className="cities__right-section">
             <CityMap cityLocation={city.location} points={hotels} selectedPoint={selectedHotel} />

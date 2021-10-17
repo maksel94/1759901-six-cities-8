@@ -1,17 +1,11 @@
-import { Hotel } from '../../../types/hotel/hotel';
 import { HotelComponentProps } from '../../../types/hotel/hotel-component-props';
-import FavoriteHotel from './favorite-hotel';
+import FavoriteHotels from '../../hotel/favorite-hotels';
 
 type FavoriteGroupedHotelsProps = HotelComponentProps & {
   hotelName: string;
 };
 
 function FavoriteGroupedHotels({ hotelName, hotels }: FavoriteGroupedHotelsProps): JSX.Element {
-  const hotelRender = (hotel: Hotel) => {
-    const key = `favorite-hotel-${hotel.id}`;
-    return <FavoriteHotel key={key} hotel={hotel} />;
-  };
-
   return (
     <li className="favorites__locations-items">
       <div className="favorites__locations locations locations--current">
@@ -21,7 +15,7 @@ function FavoriteGroupedHotels({ hotelName, hotels }: FavoriteGroupedHotelsProps
           </a>
         </div>
       </div>
-      <div className="favorites__places">{hotels.map(hotelRender)}</div>
+      <FavoriteHotels hotels={hotels} />
     </li>
   );
 }

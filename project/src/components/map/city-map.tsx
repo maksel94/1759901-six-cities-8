@@ -5,6 +5,4 @@ function CityMap({ className = '', ...restProps }: MapProps): JSX.Element {
   return <Map className={`cities__map ${className}`} {...restProps} />;
 }
 
-//cities__map
-
 export default CityMap;

@@ -1,12 +1,12 @@
 import { Redirect, useParams } from 'react-router';
 import { Comment } from '../../types/comment';
 import { Hotel } from '../../types/hotel/hotel';
-import NearPlaces from './near-places';
 import RoomDetails from './room-details';
 import RoomGallery from './room-gallery';
 import { AppRoute } from '../../constants';
 import { RoomRouterProps } from '../../types/room-router-props';
 import PropertyMap from '../map/property-map';
+import NearHotels from '../hotel/near-hotels';
 
 type RoomProps = {
   hotels: Hotel[];
@@ -37,7 +37,10 @@ function Room({ hotels, nearPlaces, reviews }: RoomProps): JSX.Element {
         <PropertyMap cityLocation={hotel.city.location} points={hotels} selectedPoint={hotel} />
       </section>
       <div className="container">
-        <NearPlaces hotels={nearPlaces} />
+        <section className="near-places places">
+          <h2 className="near-places__title">Other places in the neighbourhood</h2>
+          <NearHotels hotels={nearPlaces} />
+        </section>
       </div>
     </main>
   );
